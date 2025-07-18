@@ -3,7 +3,7 @@ const sectext = document.querySelector('p')
 const download = document.getElementById('download')
 const camera = document.getElementById('camera')
 let usedcodes = JSON.parse(localStorage.getItem('usedCodes')) || [];
-
+var over = document.getElementById('overlay')
 
 function checkAndAdd(uniqueCode){
     if(usedcodes.includes(uniqueCode)){
@@ -54,7 +54,8 @@ camera.addEventListener('click', () => {
           sectext.textContent = encryptedData;
           maintext.textContent = decryptedData;
           if(checkAndAdd(decryptedData)){
-            document.body.style.color = 'green'
+           over.style.visibility = 'visible'
+           over.style.color = 'green'
           }else if(checkAndAdd(decryptedData) = false){
             document.body.style.color = 'red'
           }
